@@ -1,3 +1,30 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" swipeEnabled="false">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header>Gmail</ion-list-header>
+          <ion-menu-toggle ato-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectedIndex == i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+             details="false" [class.selected]="selectedIndex == i">
+              <ion-icon slot="start" [name]="p.icon + '-outline'"></ion-icon>
+              <ion-label>{{p.title}}</ion-label>
+              <span slot="end">{{(i+1) * 4}}+ new</span>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list id="labels">
+          <ion-list-header class="label-heading">All labels</ion-list-header>
+          <ion-menu-toggle ato-hide="false" *ngFor="let p of labels; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none"
+             details="false">
+              <ion-icon slot="start" [name]="p.icon + '-outline'"></ion-icon>
+              <ion-label>{{p.title}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>
