@@ -1,13 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-content class="ion-padding">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="search-box">
     <ion-buttons>
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-input placeholder="Search in emails"></ion-input>
+    <ion-avatar>
+      <img src="../../assets/icon/favicon.png" alt="Logo do usuario">
+    </ion-avatar>
+  </div>
 
-<ion-content>
+  <ion-list lines="none">
+    <ion-list-header>
+      INBOX
+    </ion-list-header>
+
+    <ion-item class="ion-no-padding" *ngFor="let i of [].constructor(30); let index = index">
+      <ion-avatar slot="start">
+        <!--<img src="../../assets/icon/favicon.png" alt="Logo do usuario">-->
+        G
+      </ion-avatar>
+      <ion-label>
+        <h2>Guilherme</h2>
+        <h3>I'm a big deal</h3>
+        <p>Listen, I've had a pretty messed up day!</p>
+      </ion-label>
+      <p slot="end" class="other-info">
+        <span class="time">03:50 pm</span>
+        <span>
+          <ion-icon [name]="index % 2 == 0 ? 'star-null' : 'star' " class="star"></ion-icon>
+        </span>
+      </p>
+    </ion-item>
+  </ion-list>
 </ion-content>

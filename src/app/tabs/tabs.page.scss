@@ -1,1 +1,19 @@
-
+ion-tab-bar{
+    height: 60px;
+    ion-icon{
+        font-size: 1.6rem; 
+    }
+    ion-label{
+        font-size: 0.8rem;
+    }
+    ion-tab-button{
+        --color-selected: red;
+        --ripple-color: #fff;
+        font-weight: bold;
+    }
+    ion-badge{
+        font-size: 0.7rem;
+        padding: 2px 4px;
+        background: red ;
+    }
+}

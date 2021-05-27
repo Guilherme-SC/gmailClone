@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
+  activeTab: any;
   constructor() {}
-
+  
+  tabChange(event){
+    this.activeTab = event.tab;
+  }
 }
