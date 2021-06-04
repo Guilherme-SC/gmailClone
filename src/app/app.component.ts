@@ -9,12 +9,12 @@ export class AppComponent {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'All inboxes',
+      title: 'Todas as Cx. entrada',
       url: '/tabs/tab1',
       icon: 'albums'
     },
     {
-      title: 'Primary',
+      title: 'Primário',
       url: '/tabs/tab1',
       icon: 'chatbox-ellipses'
     },
@@ -24,7 +24,7 @@ export class AppComponent {
       icon: 'person'
     },
     {
-      title: 'Promotions',
+      title: 'Promoções',
       url: '/tabs/tab1',
       icon: 'pricetag'
     }
@@ -32,7 +32,7 @@ export class AppComponent {
 
   public labels = [
     {
-      title: 'Starred',
+      title: 'Com Estrela',
       url: '/tabs/tab1',
       icon: 'star'
     },
@@ -42,32 +42,32 @@ export class AppComponent {
       icon: 'timer'
     },
     {
-      title: 'Important',
+      title: 'Importantes',
       url: '/tabs/tab1',
       icon: 'pricetag'
     },
     {
-      title: 'Sent',
+      title: 'Enviados',
       url: '/tabs/tab1',
       icon: 'send'
     },
     {
-      title: 'Scheduled',
+      title: 'Agendados',
       url: '/tabs/tab1',
       icon: 'hourglass'
     },
     {
-      title: 'Outbox',
+      title: 'Caixa de saída',
       url: '/tabs/tab1',
       icon: 'chatbubble'
     },
     {
-      title: 'Drafts',
+      title: 'Rascunhos',
       url: '/tabs/tab1',
       icon: 'document'
     },
     {
-      title: 'All main',
+      title: 'Todos Emails',
       url: '/tabs/tab1',
       icon: 'mail-open'
     },
@@ -77,12 +77,12 @@ export class AppComponent {
       icon: 'alert-circle'
     },
     {
-      title: 'Bin',
+      title: 'Lixeira',
       url: '/tabs/tab1',
       icon: 'trash'
     },
     {
-      title: 'Unwanted',
+      title: 'Indesejados ',
       url: '/tabs/tab1',
       icon: 'trash-bin'
     },
