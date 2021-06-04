@@ -20,7 +20,7 @@
       Caixa de Entrada
     </ion-list-header>
 
-    <ion-item class="ion-no-padding" *ngFor="let i of [].constructor(30); let index = index">
+    <ion-item class="ion-no-padding" *ngFor="let i of [].constructor(1); let index = index">
       <ion-avatar slot="start">
         <!--<img src="../../assets/icon/favicon.png" alt="Logo do usuario">-->
         G
@@ -37,5 +37,58 @@
         </span>
       </p>
     </ion-item>
+    
+    <ion-item class="ion-no-padding" *ngFor="let i of [].constructor(2); let index = index">
+      <ion-avatar slot="start">
+        <img src="../../assets/icon/gabigol.jpg" alt="Logo do usuario">
+      </ion-avatar>
+      <ion-label>
+        <h2>Gabriel B. Lemos</h2>
+        <h3>TCC</h3>
+        <p>Estou falando com os psicólogos para o vídeo</p>
+      </ion-label>
+      <p slot="end" class="other-info">
+        <span class="time">03:50 pm</span>
+        <span>
+          <ion-icon [name]="index % 2 == 0 ? 'star-otline' : 'star' " class="star"></ion-icon>
+        </span>
+      </p>
+    </ion-item>
+
+    <ion-item class="ion-no-padding" *ngFor="let i of [].constructor(2); let index = index">
+      <ion-avatar slot="start">
+        <img src="../../assets/icon/well.jpg" alt="Logo do usuario">
+      </ion-avatar>
+      <ion-label>
+        <h2>Wellisson</h2>
+        <h3>TCC</h3>
+        <p>Como está a check do PDCA</p>
+      </ion-label>
+      <p slot="end" class="other-info">
+        <span class="time">03:50 pm</span>
+        <span>
+          <ion-icon [name]="index % 2 == 0 ? 'star-otline' : 'star' " class="star"></ion-icon>
+        </span>
+      </p>
+    </ion-item>
+
+    <ion-item class="ion-no-padding" *ngFor="let i of [].constructor(15); let index = index">
+      <ion-avatar slot="start">
+        <!--<img src="../../assets/icon/favicon.png" alt="Logo do usuario">-->
+        G
+      </ion-avatar>
+      <ion-label>
+        <h2>Guilherme</h2>
+        <h3>TCC</h3>
+        <p>Vamos Avançar esse TCC</p>
+      </ion-label>
+      <p slot="end" class="other-info">
+        <span class="time">03:50 pm</span>
+        <span>
+          <ion-icon [name]="index % 2 == 0 ? 'star-otline' : 'star' " class="star"></ion-icon>
+        </span>
+      </p>
+    </ion-item>
+
   </ion-list>
 </ion-content>
