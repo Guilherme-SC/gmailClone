@@ -163,8 +163,40 @@ Demonstração da câmera:
 
 ![Newfuncionalidade](https://cdn.discordapp.com/attachments/849695286049898539/852380605404545065/evidencia4.png)
 
+Para exibirmos a foto na página precisamos exportar uma interface Foto no arquivo de serviço:
+```
+export interface Foto {
+  filepath: string;
+  webviewPath: string;
+}
+```
+
+Podemos reutilizar está interface nas outras partes do código utilizando o comando: ```public photos: Foto[] = [];``` e os exibir na tela usando:  
+```
+const capturedPhoto = await Camera.getPhoto({
+    resultType: CameraResultType.Uri,
+    source: CameraSource.Camera,
+    quality: 100
+  });
+
+  this.photos.unshift({
+    filepath: "soon...",
+    webviewPath: capturedPhoto.webPath
+  });
+}
+```
+Exemplo: 
+
+![exibindo](https://cdn.discordapp.com/attachments/849695286049898539/852380610932375582/evidencia6.png)
 
 
+Quanto ao salvamento e a exclusão dos arquivos utilizamos várias funções as quais ficariam muito extensas para decorrer neste documento para você ter uma visão melhor quanto a este quesito analisi nos comentários do código 
 
 
+## Equipe:
+- Gabriel Barbosa Lemos
+- Guilherme Santos Conceição
+- Wellisson Matos de Jesus
 
+## Agradecimentos 
+Gostaríamos de agradecer a você que está lendo este documento ou clonando este projeto, nós ficamos felizes por você estar prestigiando o nosso trabalho ❤❤❤.
