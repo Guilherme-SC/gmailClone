@@ -11,14 +11,14 @@ export class Tab2Page {
   constructor(public photoService: PhotoService) { }
 
 addPhotoToGallery() {
-  this.photoService.addNewToGallery();
+  this.photoService.addNewToGallery(); // utilizando o metodo a partir do click do botão
 }
 
 remover(){
-  this.photoService.deletarFoto();
+  this.photoService.deletarFoto();// utilizando o metodo a partir do click do botão
 }
 
 async ngOnInit() {
-  await this.photoService.loadSaved();
+  await this.photoService.loadSaved();// utilizando o metodo a partir do click do botão
 }
 }

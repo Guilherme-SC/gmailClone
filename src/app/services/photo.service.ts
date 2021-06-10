@@ -20,7 +20,7 @@ export class PhotoService {
   }
 
   public async addNewToGallery() {
-    
+    // Pegar Foto
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
@@ -28,12 +28,12 @@ export class PhotoService {
     });
   
     this.photos.unshift({
-      filepath: "soon...",
+      filepath: "soon...", // Exibir Foto
       webviewPath: capturedPhoto.webPath
     });
     
     Storage.set({
-      key: this.PHOTO_STORAGE,
+      key: this.PHOTO_STORAGE, // Salvando Foto
       value: JSON.stringify(this.photos)
     });
 
@@ -42,27 +42,27 @@ export class PhotoService {
   }
 
    public async deletarFoto(){
-    await this.photos.pop()
+    await this.photos.pop() //Deletando Foto
   }
 
 
   public async loadSaved() {
-    // Retrieve cached photo array data
+    // Recuperar dados de array de fotos em cache 
     const photoList = await Storage.get({ key: this.PHOTO_STORAGE });
     this.photos = JSON.parse(photoList.value) || [];
   
-    // Easiest way to detect when running on the web:
-    // “when the platform is NOT hybrid, do this”
+    // Maneira mais fácil de detectar durante a execução na web:
+     // “quando a plataforma NÃO é híbrida, faça isso” 
     if (!this.platform.is('hybrid')) {
-      // Display the photo by reading into base64 format
+      // Exibe a foto lendo no formato base64 
       for (let photo of this.photos) {
-        // Read each saved photo's data from the Filesystem
+        // Leia os dados de cada foto salva no sistema de arquivos 
         const readFile = await Filesystem.readFile({
             path: photo.filepath,
             directory: Directory.Data
         });
   
-        // Web platform only: Load the photo as base64 data
+        // Apenas plataforma web: carregue a foto como dados base64 
         photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
       }
     }
@@ -71,7 +71,7 @@ export class PhotoService {
   private async savePicture(cameraPhoto: CameraPhoto){
     const base64Data = await this.readAsBase64(cameraPhoto);
 
-     // Write the file to the data directory
+     // Grave o arquivo no diretório de dados 
      const fileName = new Date().getTime() + '.jpeg';
      const savedFile = await Filesystem.writeFile({
        path: fileName,
@@ -80,16 +80,16 @@ export class PhotoService {
      });
  
      if (this.platform.is('hybrid')) {
-       // Display the new image by rewriting the 'file://' path to HTTP
-       // Details: https://ionicframework.com/docs/building/webview#file-protocol
+      // Exibe a nova imagem reescrevendo o caminho 'file: //' para HTTP
+      // Detalhes: https://ionicframework.com/docs/building/webview#file-protocol 
        return {
          filepath: savedFile.uri,
          webviewPath: Capacitor.convertFileSrc(savedFile.uri),
        };
      }
      else {
-       // Use webPath to display the new image instead of base64 since it's
-       // already loaded into memory
+       // Use webPath para exibir a nova imagem em vez de base64, pois é
+      // já carregado na memória 
        return {
          filepath: fileName,
          webviewPath: cameraPhoto.webPath
@@ -98,9 +98,9 @@ export class PhotoService {
   }
 
   private async readAsBase64(cameraPhoto: CameraPhoto) {
-  // "hybrid" will detect Cordova or Capacitor
+    // "hybrid" will detect Cordova or Capacitor
   if (this.platform.is('hybrid')) {
-    // Read the file into base64 format
+    // Leia o arquivo no formato base64
     const file = await Filesystem.readFile({
       path: cameraPhoto.path
     });
@@ -108,7 +108,7 @@ export class PhotoService {
     return file.data;
   }
   else {
-    // Fetch the photo, read as a blob, then convert to base64 format
+    // Pegue a foto, leia como um blob e converta para o formato base64 
     const response = await fetch(cameraPhoto.webPath);
     const blob = await response.blob();
 
@@ -118,7 +118,7 @@ export class PhotoService {
   
   convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
     const reader = new FileReader;
-    reader.onerror = reject;
+    reader.onerror = reject; // converter o blob para a base64
     reader.onload = () => {
         resolve(reader.result);
     };
@@ -127,6 +127,6 @@ export class PhotoService {
 }
 
 export interface Foto {
-  filepath: string;
+  filepath: string; //exportando interface
   webviewPath: string;
 }

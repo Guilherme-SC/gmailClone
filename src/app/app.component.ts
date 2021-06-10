@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public selectedIndex = 0;
-  public appPages = [
+  public appPages = [ //   JSONs para o conteudo do menu lateral.
     {
       title: 'Todas as Cx. entrada',
       url: '/tabs/tab1',
