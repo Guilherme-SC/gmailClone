@@ -124,4 +124,47 @@ Aqui temos o código:
 </ion-content>
 ```
 ## Nova Funcionalidade 
+O Gmail é um app bastante completo com muitas funcionalidades, isso acabou gerando muito trabalho na hora de pensar "qual deveria ser a nova funcionalidade".
+No decorrer das pesquisas para encontrarmos uma boa nova função pensamos em desenvolver uma função de mídia(câmera, áudio e vídeo), mas ocorreram alguns erros na construção e na execução do projeto em vista desse acontecimento decidimos diminuir a dificuldade e gerar uma funcionalidade de câmera, a qual o gmail não possui. 
+
+
+Para a construção da nova Funcionalidade decidimos implementar os serviços necessários para o funcionamento da câmera, a partir do capacitor. Configuramos o sistema de forma correta utilizando os seguintes comandos:
+```
+npm install -g @ionic/cli native-run cordova-res
+npm install @capacitor/camera @capacitor/storage @capacitor/filesystem
+npm install @ionic/pwa-elements
+
+```
+Importamos suas devidas bibliotecas para a construção do sistema no main.ts, no tab2.page.ts e no serviço que geramos usando ```ionic g service services/photo```
+e neste serviço gerado adicionamos o seguinte código para o funcionamento da câmera:
+
+
+```
+public async addNewToGallery() {
+  // Pegar a Foto
+  const capturedPhoto = await Camera.getPhoto({
+    resultType: CameraResultType.Uri,
+    source: CameraSource.Camera,
+    quality: 100
+  });
+}
+```
+No Tab2.page.ts: 
+```
+import { PhotoService } from '../services/photo.service';
+
+constructor(public photoService: PhotoService) { }
+
+addPhotoToGallery() {
+  this.photoService.addNewToGallery();
+}
+```
+Demonstração da câmera:
+
+![Newfuncionalidade](https://cdn.discordapp.com/attachments/849695286049898539/852380605404545065/evidencia4.png)
+
+
+
+
+
 
